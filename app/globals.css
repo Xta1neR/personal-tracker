@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+
+/* Global theme tokens */
+:root {
+  color-scheme: dark;
+}
+
+/* Minimal global reset for the dashboard */
+body {
+  background-color: #101622; /* background-dark */
+  color: #ffffff;
+  margin: 0;
+}

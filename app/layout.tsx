@@ -1,0 +1,25 @@
+// app/layout.tsx
+import "./globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "Valhalla Ascension – 30-Day Protocol",
+  description: "Daily Discipline Dashboard for Xta1neR 30-day Norse protocol.",
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" className="dark">
+      <body className={`${inter.className}`}>
+        {children}
+      </body>
+    </html>
+  );
+}
