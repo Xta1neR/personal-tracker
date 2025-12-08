@@ -68,37 +68,37 @@ export const WORKOUTS_BY_DAY: Record<Weekday, WorkoutDay> = {
       {
         name: "Warmup: Arm Circles, Push-up Walkouts",
         setsReps: "5 mins",
-        gif: "/gifs/warmup-upper.gif",
+        gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765196384/799be440-32e3-4694-9fd7-31e8da818693.png",
       },
       {
         name: "Chest Press",
         setsReps: "4 × 12 (Heavy)",
-        gif: "/gifs/chest-press.gif",
+        gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765195569/chestPress_vzyhag.gif",
       },
       {
         name: "Shoulder Press",
         setsReps: "4 × 12",
-        gif: "/gifs/shoulder-press.gif",
+        gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765195569/shoulderPress_oamdgz.gif",
       },
       {
         name: "Incline Flys",
         setsReps: "3 × 15",
-        gif: "/gifs/incline-fly.gif",
+        gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765195569/Incline-dumbbell-Fly_ikxg8u.gif",
       },
       {
         name: "Lateral Raises",
         setsReps: "5 × 15 (Strict form)",
-        gif: "/gifs/lateral-raises.gif",
+        gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765195568/Dumbbell-Lateral-Raise_s7gnf2.gif",
       },
       {
         name: "Tricep Overhead Extension",
         setsReps: "3 × 12",
-        gif: "/gifs/tricep-overhead.gif",
+        gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765195568/triceps_zvlxzs.gif",
       },
       {
         name: "Finisher: Pushups",
         setsReps: "To failure",
-        gif: "/gifs/pushups.gif",
+        gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765195570/pushups_asc7qu.gif",
       },
     ],
     cardioCore: [
@@ -130,14 +130,14 @@ export const WORKOUTS_BY_DAY: Record<Weekday, WorkoutDay> = {
       {
         name: "Warmup: Jumping Jacks, Arm Swings",
         setsReps: "5 mins",
-        gif: "/gifs/warmup-cardio.gif",
+        gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765195575/jacks_etc5j4.gif",
       },
-      { name: "One-Arm DB Row", setsReps: "4 × 12 / side" },
-      { name: "Bent-Over Row", setsReps: "4 × 12" },
-      { name: "DB Pullovers", setsReps: "3 × 15 (stretch lats)" },
-      { name: "Rear Delt Flys", setsReps: "4 × 15" },
-      { name: "Bicep Curls", setsReps: "3 × 12" },
-      { name: "Hammer Curls", setsReps: "3 × 12" },
+      { name: "One-Arm DB Row", setsReps: "4 × 12 / side", gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765195577/singlearmrow_ph3f2b.gif" },
+      { name: "Bent-Over Row", setsReps: "4 × 12", gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765195573/bentRow_c5t95g.gif"},
+      { name: "DB Pullovers", setsReps: "3 × 15 (stretch lats)", gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765195575/pullOvers_xhyiin.gif" },
+      { name: "Rear Delt Flys", setsReps: "4 × 15", gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765195575/rearDelt_kgkv8t.gif" },
+      { name: "Bicep Curls", setsReps: "3 × 12", gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765195573/Dumbbell-Curl_d45wzo.gif" },
+      { name: "Hammer Curls", setsReps: "3 × 12", gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765195574/hammercurl_rq9igw.gif"},
     ],
     cardioCore: [
       { name: "Incline Walk", setsReps: "Max incline, speed 4.5 – 20 mins" },
@@ -160,16 +160,16 @@ export const WORKOUTS_BY_DAY: Record<Weekday, WorkoutDay> = {
     arena: [
       {
         name: "Warmup: Bodyweight Squats, High Knees",
-        setsReps: "5 mins",
+        setsReps: "5 mins", gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765196927/069a3884-a0e5-4153-a21e-28122f28f8d0.png"
       },
-      { name: "Goblet Squats", setsReps: "5 × 12 (deep)" },
+      { name: "Goblet Squats", setsReps: "5 × 12 (deep)", gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765196869/squats_xoanxd.gif" },
       {
         name: "Walking Lunges",
-        setsReps: "4 × 12 steps / leg",
+        setsReps: "4 × 12 steps / leg", gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765196867/Dumbbell-Lunge_brrllt.gif",
       },
-      { name: "DB Romanian Deadlift", setsReps: "4 × 12" },
-      { name: "Step-Ups", setsReps: "3 × 12" },
-      { name: "Calf Raises", setsReps: "5 × 20" },
+      { name: "DB Romanian Deadlift", setsReps: "4 × 12", gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765196869/deadlifts_ssvw3x.gif" },
+      { name: "Step-Ups", setsReps: "3 × 12", gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765196870/WEI_STEP_UP_mprohk.gif" },
+      { name: "Calf Raises", setsReps: "5 × 20", gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765196870/Single-Leg-Standing-Calf-Raise_xpygco.gif" },
     ],
     cardioCore: [
       { name: "Steady Jog", setsReps: "15 mins – moderate pace" },
@@ -190,12 +190,12 @@ export const WORKOUTS_BY_DAY: Record<Weekday, WorkoutDay> = {
       { id: "thu-mr-2", label: "500ml Water + Salt" },
     ],
     arena: [
-      { name: "Warmup Walk", setsReps: "5 mins" },
+      { name: "Warmup Walk", setsReps: "5 mins", gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765197315/fe896f51-45e9-49aa-82bf-96b1be4a0093.png"},
       {
         name: "Viking Intervals",
-        setsReps: "20 mins – 30s sprint / 30s rest",
+        setsReps: "20 mins – 30s sprint / 30s rest", gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765197255/37af5169-47e2-457b-a593-023c3438a215.png"
       },
-      { name: "Cooldown Incline Walk", setsReps: "15 mins" },
+      { name: "Cool down Incline Walk", setsReps: "15 mins", gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765197315/fe896f51-45e9-49aa-82bf-96b1be4a0093.png"},
     ],
     cardioCore: [
       { name: "Plank", setsReps: "4 × 60s" },
@@ -219,18 +219,38 @@ export const WORKOUTS_BY_DAY: Record<Weekday, WorkoutDay> = {
     ],
     arena: [
       {
-        name: "Superset 1 – DB Floor Press + DB Rows",
+        name: "DB Floor Press",
         setsReps: "4 × 12 (each)",
+        gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765197404/dumbbell-floor-press_i3ji53.gif"
       },
       {
-        name: "Superset 2 – Arnold Press + Lateral Raises",
+        name: "DB Rows",
+        setsReps: "4 × 12 (each)",
+        gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765197405/Dumbbell-Row_xgx2ii.gif"
+      },
+      {
+        name: "Arnold Press",
         setsReps: "4 × 15 (each)",
+        gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765197402/arnold-press_tajxj0.gif"
       },
       {
-        name: "Superset 3 – Hammer Curls + Tricep Extensions",
-        setsReps: "3 × 12 (each)",
+        name: "Lateral Raises",
+        setsReps: "4 × 15 (each)",
+        gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765197404/Dumbbell-Lateral-Raise_o8sals.webp"
       },
-      { name: "Finisher – Pushups", setsReps: "50 total" },
+      {
+        name: "Hammer Curls",
+        setsReps: "3 × 12 (each)",
+        gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765197406/Hammer-curl_uesaol.webp"
+      },
+      {
+        name: "Tricep Extensions",
+        setsReps: "3 × 12 (each)",
+        gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765197408/seated-dumbbell-triceps-extension_rxovxa.gif"
+      },
+      { name: "Finisher – Pushups", setsReps: "50 total",
+        gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765197407/Push-Up_xzytfl.gif"
+       },
     ],
     cardioCore: [
       { name: "Run / Walk Intervals", setsReps: "2 mins run / 2 mins walk × 5" },
@@ -249,12 +269,12 @@ export const WORKOUTS_BY_DAY: Record<Weekday, WorkoutDay> = {
       { id: "sat-mr-2", label: "500ml Water + Salt" },
     ],
     arena: [
-      { name: "Warmup: Jump Rope or Jacks", setsReps: "5 mins" },
-      { name: "Jump Squats", setsReps: "4 × 15" },
-      { name: "Reverse Lunges", setsReps: "4 × 12 / leg" },
-      { name: "DB Thrusters", setsReps: "4 × 10" },
-      { name: "Single-Leg Deadlift", setsReps: "3 × 12" },
-      { name: "Farmer's Walk", setsReps: "3 × 60s (heavy)" },
+      { name: "Warmup: Jump Rope or Jacks", setsReps: "5 mins", gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765195575/jacks_etc5j4.gif" },
+      { name: "Jump Squats", setsReps: "4 × 15", gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765197829/jumpSquats_aqiqwi.gif" },
+      { name: "Reverse Lunges", setsReps: "4 × 12 / leg", gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765197830/bodyweight-reverse-lunge_sr0vch.gif" },
+      { name: "DB Thrusters", setsReps: "4 × 10", gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765197829/dumbbell-thruster_ihvkj0.webp" },
+      { name: "Single-Leg Deadlift", setsReps: "3 × 12", gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765197831/single_leg_deadlift_zl0bm2.webp" },
+      { name: "Farmer's Walk", setsReps: "3 × 60s (heavy)", gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765197828/benefits-of-farmers-walks_yzkwwm.gif" },
     ],
     cardioCore: [
       {
@@ -279,10 +299,12 @@ export const WORKOUTS_BY_DAY: Record<Weekday, WorkoutDay> = {
       {
         name: "The Long Scout",
         setsReps: "60 min outdoor walk or treadmill",
+        gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765197965/25d40fd6-5838-4e94-98ec-3ea7e26ba4ce.png"
       },
       {
         name: "Deep Stretching",
         setsReps: "Deep squat hold, pigeon pose, doorway stretch",
+        gif: "https://res.cloudinary.com/dtkpfqtzk/image/upload/v1765198111/69f012c1-ee2c-4841-b346-e806f65bd0cd.png"
       },
     ],
     cardioCore: [],

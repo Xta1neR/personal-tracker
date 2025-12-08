@@ -58,11 +58,14 @@ export default function WorkoutSection({ day }: WorkoutSectionProps) {
             >
               <div className="aspect-video w-full overflow-hidden rounded-md bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center text-[11px] text-gray-300">
                 {ex.gif ? (
-                  <span className="opacity-80">
-                    GIF placeholder for <strong>{ex.name}</strong>
-                  </span>
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={ex.gif}
+                    alt={ex.name}
+                    className="h-full w-full object-cover"
+                  />
                 ) : (
-                  <span className="opacity-70">Add GIF here</span>
+                  <span className="text-[11px] text-gray-400">Add GIF here</span>
                 )}
               </div>
               <div>
