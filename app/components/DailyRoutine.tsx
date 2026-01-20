@@ -33,11 +33,11 @@ const BLOCKS: RoutineBlock[] = [
     timeLabel: "09:00 – 10:00",
     startMinutes: 9 * 60,
     endMinutes: 10 * 60,
-    icon: "🏋️",
+    icon: "🥞",
   },
   {
     id: "study1",
-    label: "Study Session 1",
+    label: "Study Session 1 - Data Science + DSA + CSE Core",
     timeLabel: "10:00 – 14:00",
     startMinutes: 10 * 60,
     endMinutes: 14 * 60,
@@ -53,7 +53,7 @@ const BLOCKS: RoutineBlock[] = [
   },
   {
     id: "study2",
-    label: "Study Session 2",
+    label: "Study Session 2 - UPSC GS PREP",
     timeLabel: "15:00 – 19:00",
     startMinutes: 15 * 60,
     endMinutes: 19 * 60,
@@ -77,7 +77,7 @@ const BLOCKS: RoutineBlock[] = [
   },
   {
     id: "study3",
-    label: "Study Session 3",
+    label: "Study Session 3 - Quant + Reasoning + English",
     timeLabel: "22:00 – 02:00",
     startMinutes: 22 * 60,
     endMinutes: 26 * 60, // crosses midnight
