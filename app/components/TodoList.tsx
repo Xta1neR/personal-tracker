@@ -1,138 +1,129 @@
-// components/TodoList.tsx
 "use client";
 
-import { useLocalStorageState } from "./hooks";
+import React from "react";
+import { useDailyMissions } from "./hooks/useDailyMissions";
 
-export interface TodoItem {
-  id: string;
-  text: string;
-  completed: boolean;
-}
+// --- CONFIGURATION: Your 2x3 Grid Items ---
+const DAILY_PROTOCOL = [
+  { id: "m1", title: "20 Pushups", completed: false },
+  { id: "m2", title: "20 Crunches", completed: false },
+  { id: "m3", title: "20 Squats", completed: false },
+  { id: "m4", title: "20 Calf Raises", completed: false },
+  { id: "m5", title: "100 Jumping Jacks", completed: false },
+  { id: "m6", title: "10 Min Meditation", completed: false },
+];
 
 interface TodoListProps {
   storageKey: string;
 }
 
 export default function TodoList({ storageKey }: TodoListProps) {
-  const [todos, setTodos] = useLocalStorageState<TodoItem[]>(storageKey, []);
-  const [input, setInput] = React.useState("");
+  // usage of version 'v2' to try and break cache, but manual reset is safer
+  const { missions, setMissions, isLoaded } = useDailyMissions(
+    `${storageKey}_daily_protocol_v2`, 
+    DAILY_PROTOCOL
+  );
 
-  const completedCount = todos.filter((t) => t.completed).length;
-  const totalCount = todos.length;
-  const completionPercent =
-    totalCount === 0 ? 0 : Math.round((completedCount / totalCount) * 100);
-
-  function addTodo() {
-    const value = input.trim();
-    if (!value) return;
-    const id =
-      typeof crypto !== "undefined" && "randomUUID" in crypto
-        ? crypto.randomUUID()
-        : `${Date.now()}-${Math.random()}`;
-
-    setTodos([...todos, { id, text: value, completed: false }]);
-    setInput("");
-  }
-
-  function toggleTodo(id: string) {
-    setTodos(
-      todos.map((t) =>
-        t.id === id ? { ...t, completed: !t.completed } : t
+  const toggleMission = (id: string) => {
+    setMissions((prev) =>
+      prev.map((m) =>
+        m.id === id ? { ...m, completed: !m.completed } : m
       )
     );
-  }
+  };
 
-  function removeTodo(id: string) {
-    setTodos(todos.filter((t) => t.id !== id));
-  }
-
-  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      addTodo();
+  // --- NEW: Manual Reset Function ---
+  const handleRefresh = () => {
+    if (confirm("Reset daily protocol to default settings?")) {
+      setMissions(DAILY_PROTOCOL); // Forces state to match the code
     }
+  };
+
+  if (!isLoaded) {
+    return <div className="h-64 animate-pulse rounded-xl bg-gray-800/50"></div>;
   }
+
+  const completedCount = missions.filter((m) => m.completed).length;
+  const progress = Math.round((completedCount / missions.length) * 100);
 
   return (
-    <section className="rounded-xl bg-white/5 p-5 space-y-4">
-      <div className="flex items-center justify-between gap-2">
-        <h2 className="text-lg font-semibold text-white tracking-tight">
-          Today&apos;s Missions
-        </h2>
-        <span className="text-xs uppercase tracking-[0.18em] text-primary font-semibold">
-          30-Day Protocol
-        </span>
-      </div>
-
-      <div className="flex gap-2">
-        <input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={handleKeyDown}
-          className="h-11 flex-1 rounded-lg border border-white/10 bg-black/30 px-3 text-sm text-white placeholder:text-gray-500 focus:border-primary/60 focus:outline-none focus:ring-0"
-          placeholder="Add a new mission..."
-        />
-        <button
-          type="button"
-          onClick={addTodo}
-          className="h-11 rounded-lg bg-primary px-4 text-sm font-semibold text-white hover:bg-primary/90"
-        >
-          Add
-        </button>
-      </div>
-
-      <div className="space-y-2">
-        {todos.length === 0 && (
-          <p className="text-xs text-gray-400">
-            No missions yet. Forge your first quest for today.
-          </p>
-        )}
-
-        {todos.map((todo) => (
-          <div
-            key={todo.id}
-            className="flex items-center gap-3 rounded-lg px-3 py-2 hover:bg-white/5"
+    <div className="rounded-xl bg-gray-900/50 border border-gray-800 p-6 backdrop-blur-sm h-full flex flex-col">
+      <div className="mb-6 flex items-center justify-between">
+        <h2 className="text-xl font-bold text-white">Daily Protocol</h2>
+        
+        <div className="flex items-center gap-3">
+          <span className="text-sm font-medium text-blue-400">
+            {progress}%
+          </span>
+          
+          {/* REFRESH BUTTON */}
+          <button 
+            onClick={handleRefresh}
+            className="p-1.5 rounded-md text-gray-500 hover:text-white hover:bg-gray-700 transition-colors"
+            title="Reset Protocol (Fixes stuck text)"
           >
-            <input
-              type="checkbox"
-              checked={todo.completed}
-              onChange={() => toggleTodo(todo.id)}
-              className="h-4 w-4 rounded border-white/30 bg-black/40 text-primary focus:ring-primary/50"
-            />
-            <p
-              className={`flex-1 text-sm ${
-                todo.completed ? "text-gray-500 line-through" : "text-gray-100"
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+              <path d="M3 3v5h5"/>
+              <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
+              <path d="M16 16h5v5"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {/* Progress Bar */}
+      <div className="mb-6 h-2 w-full overflow-hidden rounded-full bg-gray-800">
+        <div
+          className="h-full bg-blue-500 transition-all duration-500 ease-out"
+          style={{ width: `${progress}%` }}
+        />
+      </div>
+
+      {/* 2x3 GRID LAYOUT */}
+      <div className="grid grid-cols-2 gap-3 flex-1">
+        {missions.map((mission) => (
+          <div
+            key={mission.id}
+            onClick={() => toggleMission(mission.id)}
+            className={`group flex cursor-pointer flex-col items-center justify-center rounded-lg border p-3 text-center transition-all ${
+              mission.completed
+                ? "border-blue-500/30 bg-blue-500/10"
+                : "border-gray-800 bg-gray-900/40 hover:border-gray-600 hover:bg-gray-800/60"
+            }`}
+          >
+            {/* Checkbox Circle */}
+            <div
+              className={`mb-2 flex h-6 w-6 items-center justify-center rounded-full border transition-colors ${
+                mission.completed
+                  ? "border-blue-500 bg-blue-500 text-white"
+                  : "border-gray-600 group-hover:border-blue-400"
               }`}
             >
-              {todo.text}
-            </p>
-            <button
-              type="button"
-              onClick={() => removeTodo(todo.id)}
-              className="text-xs text-gray-500 hover:text-red-400"
+              {mission.completed && (
+                <svg
+                  className="h-3.5 w-3.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              )}
+            </div>
+            
+            {/* Title */}
+            <span
+              className={`text-sm font-medium transition-colors ${
+                mission.completed ? "text-gray-400 line-through" : "text-gray-200"
+              }`}
             >
-              ✕
-            </button>
+              {mission.title}
+            </span>
           </div>
         ))}
       </div>
-
-      <div className="space-y-1 pt-2">
-        <div className="flex items-center justify-between text-xs">
-          <span className="text-gray-400">Tasks completed</span>
-          <span className="text-gray-100 font-semibold">
-            {completedCount}/{totalCount || 0} ({completionPercent}%)
-          </span>
-        </div>
-        <div className="h-2 rounded-full bg-black/40 overflow-hidden">
-          <div
-            className="h-full rounded-full bg-primary transition-[width] duration-200"
-            style={{ width: `${completionPercent}%` }}
-          />
-        </div>
-      </div>
-    </section>
+    </div>
   );
 }
-
-import React from "react";

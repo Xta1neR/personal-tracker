@@ -1,13 +1,14 @@
-// components/Dashboard.tsx
 "use client";
 
+import React from "react"; // <--- MOVED THIS TO THE TOP
 import Header from "./Header";
 import WeeklyCalendar, { CalendarDay } from "./WeeklyCalendar";
 import TodoList from "./TodoList";
+import CustomTasks from "./CustomTasks";
 import DailyRoutine from "./DailyRoutine";
 import WorkoutSection from "./WorkoutSection";
 import DailyLog from "./DailyLog";
-import { useCurrentTime } from "./hooks";
+import { useCurrentTime } from "./hooks"; // Ensure this path matches your folder structure
 import {
   WORKOUTS_BY_DAY,
   WEEKDAY_ORDER,
@@ -91,12 +92,20 @@ export default function Dashboard() {
         />
 
         <main className="grid gap-6 lg:grid-cols-3">
+          {/* LEFT COLUMN */}
           <div className="lg:col-span-2 space-y-6">
-            <TodoList storageKey={todoStorageKey} />
+            
+            {/* Split the lists side-by-side on tablet/desktop */}
+            <div className="grid gap-6 md:grid-cols-2">
+                <TodoList storageKey={todoStorageKey} />
+                <CustomTasks storageKey={todoStorageKey} />
+            </div>
+
             <WorkoutSection day={selectedConfig} />
             <DailyLog storageKey={dailyLogKey} />
           </div>
 
+          {/* RIGHT COLUMN */}
           <div className="space-y-6">
             <DailyRoutine currentTime={now} />
           </div>
@@ -105,5 +114,3 @@ export default function Dashboard() {
     </div>
   );
 }
-
-import React from "react";
