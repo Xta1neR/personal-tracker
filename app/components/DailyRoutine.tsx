@@ -37,7 +37,7 @@ const BLOCKS: RoutineBlock[] = [
   },
   {
     id: "study1",
-    label: "Study Session 1 - Data Science + DSA + CSE Core",
+    label: "Study Session 1 - Computer Science Core Subjects",
     timeLabel: "10:00 – 14:00",
     startMinutes: 10 * 60,
     endMinutes: 14 * 60,
@@ -53,7 +53,7 @@ const BLOCKS: RoutineBlock[] = [
   },
   {
     id: "study2",
-    label: "Study Session 2 - UPSC GS PREP",
+    label: "Study Session 2 - Data Science + DSA/SQL Practice",
     timeLabel: "15:00 – 19:00",
     startMinutes: 15 * 60,
     endMinutes: 19 * 60,
@@ -78,7 +78,7 @@ const BLOCKS: RoutineBlock[] = [
   {
     id: "study3",
     label: "Study Session 3 - Quant + Reasoning + English",
-    timeLabel: "22:00 – 02:00",
+    timeLabel: "22:00 – 01:00",
     startMinutes: 22 * 60,
     endMinutes: 26 * 60, // crosses midnight
     icon: "📚",
@@ -86,7 +86,7 @@ const BLOCKS: RoutineBlock[] = [
   {
     id: "sleep",
     label: "Sleep",
-    timeLabel: "02:00 – 07:00",
+    timeLabel: "01:00 – 07:00",
     startMinutes: 26 * 60,
     endMinutes: 31 * 60,
     icon: "😴",
